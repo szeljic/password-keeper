@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,163 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Apps_preferences_system_login_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\Apps-preferences-system-login-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="decrypted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\decrypted.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dice_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\dice-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="edit__3_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\edit (3).ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fffff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\banners\fffff.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="newIconLogout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\newIconLogout.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reggg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\banners\reggg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="regggggg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\banners\regggggg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="smallll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\banners\smallll.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="smallSareno" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\banners\smallSareno.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="thatsmalllogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\banners\thatsmalllogin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="undo__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\undo (1).ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wwalczyszyn_Android_Style_Honeycomb_Books" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\Wwalczyszyn-Android-Style-Honeycomb-Books.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wwwww" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\banners\wwwww.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_10743600_10204617030773365_1261392179_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\banners\10743600_10204617030773365_1261392179_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_10744541_10204616987092273_334482435_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\banners\10744541_10204616987092273_334482435_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_10752022_10204616957611536_1331432305_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\banners\10752022_10204616957611536_1331432305_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350548_27837" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350548_27837.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350555_27842" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350555_27842.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350561_27856" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350561_27856.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350564_27879" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350564_27879.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350567_27846" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350567_27846.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350571_27831" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350571_27831.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350574_27851" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350574_27851.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350580_27874" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350580_27874.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350650_143836" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350650_143836.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350959_11079" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350959_11079.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350962_11082" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350962_11082.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350965_11095" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350965_11095.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350968_11128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350968_11128.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350971_11142" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350971_11142.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350974_11092" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350974_11092.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350978_11071" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350978_11071.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350980_11141" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350980_11141.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350983_11093" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350983_11093.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350989_11112" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350989_11112.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414350992_11094" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414350992_11094.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414351047_59276" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414351047_59276.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414351050_59253" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414351050_59253.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414351056_59277" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414351056_59277.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414351059_59267" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414351059_59267.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414351066_59266" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414351066_59266.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414351069_59230" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414351069_59230.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414351072_59259" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414351072_59259.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414351169_131840" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414351169_131840.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414351171_131815" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414351171_131815.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414351174_131694" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414351174_131694.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414351187_131713" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414351187_131713.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414351190_131873" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414351190_131873.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414351193_131742" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414351193_131742.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1414351196_131848" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\1414351196_131848.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

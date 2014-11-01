@@ -51,6 +51,7 @@ namespace PasswordKeeper
             if (this.tbTitle.Text == "" || this.tbUsername.Text == "" || this.tbPassword.Text == "")
             {
                 this.lblInfo.Text = "Missing information.";
+                this.lblInfo.ForeColor = Color.Red;
                 this.tbPassword.Text = "";
                 this.tbRepeatPassword.Text = "";
                 if (this.tbTitle.Text == "")

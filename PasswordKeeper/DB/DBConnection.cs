@@ -151,7 +151,7 @@ namespace PasswordKeeper.DB
 
         public List<Item> SelectItems(int userId, int unitTypeId)
         {
-            string query = @"SELECT title, username, password, url, description, DATE_FORMAT(expires, '%d-%m-%Y') AS expires, UNIT_TYPE_id, USER_id FROM pass_unit WHERE USER_id=" + userId + " AND UNIT_TYPE_id=" + unitTypeId;
+            string query = @"SELECT title, username, password, url, description, expires, UNIT_TYPE_id, USER_id FROM pass_unit WHERE USER_id=" + userId + " AND UNIT_TYPE_id=" + unitTypeId;
 
             List<Item> list = new List<Item>();
 

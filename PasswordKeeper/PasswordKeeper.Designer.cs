@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PasswordKeeper));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +61,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbShowPasswords = new System.Windows.Forms.CheckBox();
             this.tvTypes = new System.Windows.Forms.TreeView();
+            this.ilTypes = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -91,7 +93,7 @@
             // 
             this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // logoutToolStripMenuItem
@@ -148,8 +150,8 @@
             this.allToolStripMenuItem,
             this.generalToolStripMenuItem,
             this.webToolStripMenuItem,
-            this.emailToolStripMenuItem,
             this.gameToolStripMenuItem,
+            this.emailToolStripMenuItem,
             this.windowsToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -318,7 +320,7 @@
             // 
             this.cbShowPasswords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbShowPasswords.AutoSize = true;
-            this.cbShowPasswords.Location = new System.Drawing.Point(115, 475);
+            this.cbShowPasswords.Location = new System.Drawing.Point(139, 476);
             this.cbShowPasswords.Name = "cbShowPasswords";
             this.cbShowPasswords.Size = new System.Drawing.Size(106, 17);
             this.cbShowPasswords.TabIndex = 13;
@@ -327,11 +329,25 @@
             // 
             // tvTypes
             // 
+            this.tvTypes.ImageIndex = 0;
+            this.tvTypes.ImageList = this.ilTypes;
             this.tvTypes.Location = new System.Drawing.Point(12, 123);
             this.tvTypes.Name = "tvTypes";
+            this.tvTypes.SelectedImageIndex = 0;
             this.tvTypes.Size = new System.Drawing.Size(121, 342);
             this.tvTypes.TabIndex = 14;
             this.tvTypes.Click += new System.EventHandler(this.tvTypes_Click);
+            // 
+            // ilTypes
+            // 
+            this.ilTypes.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ilTypes.ImageStream")));
+            this.ilTypes.TransparentColor = System.Drawing.Color.Transparent;
+            this.ilTypes.Images.SetKeyName(0, "1414350971_11142.ico");
+            this.ilTypes.Images.SetKeyName(1, "1414350974_11092.ico");
+            this.ilTypes.Images.SetKeyName(2, "1414350959_11079.ico");
+            this.ilTypes.Images.SetKeyName(3, "dice-icon.png");
+            this.ilTypes.Images.SetKeyName(4, "1414351050_59253.ico");
+            this.ilTypes.Images.SetKeyName(5, "Apps-preferences-system-login-icon.png");
             // 
             // PasswordKeeper
             // 
@@ -394,5 +410,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox cbShowPasswords;
         private System.Windows.Forms.TreeView tvTypes;
+        private System.Windows.Forms.ImageList ilTypes;
     }
 }

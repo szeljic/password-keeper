@@ -56,16 +56,6 @@ namespace PasswordKeeper
             UnitTypeDAO types = new UnitTypeDAOImpl();
             UnitType allTypes = types.GetAllTypes();
 
-            ImageList myImageList = new ImageList();
-            myImageList.Images.Add(Image.FromFile("..\\..\\resources\\icons\\1414350971_11142.ico"));
-            myImageList.Images.Add(Image.FromFile("..\\..\\resources\\icons\\1414350974_11092.ico"));
-            myImageList.Images.Add(Image.FromFile("..\\..\\resources\\icons\\1414350959_11079.ico"));
-            myImageList.Images.Add(Image.FromFile("..\\..\\resources\\icons\\1414351050_59253.ico"));
-            myImageList.Images.Add(Image.FromFile("..\\..\\resources\\icons\\dice-icon.png"));
-            myImageList.Images.Add(Image.FromFile("..\\..\\resources\\icons\\Apps-preferences-system-login-icon.png"));
-
-            this.tvTypes.ImageList = myImageList;
-
             TreeNode ParentNode = new TreeNode();
             ParentNode.Text = "All";
             ParentNode.ForeColor = Color.Black;
@@ -93,6 +83,8 @@ namespace PasswordKeeper
 
         private void tvTypes_Click(object sender, EventArgs e)
         {
+            this.lvPasswords.Items.Clear();
+
             ItemDAO itemDAO = new ItemDAOImpl();
             List<Item> list = itemDAO.SelectItemsForType(id, 3);
 
@@ -102,7 +94,29 @@ namespace PasswordKeeper
                 lvi = new ListViewItem(item.Title);
                 lvi.SubItems.Add(item.Username);
                 lvi.SubItems.Add(item.Password);
-                lvi.SubItems.Add(item.Type.ToString());
+
+                switch(item.Type){
+                    case 0:
+                        lvi.SubItems.Add("All");
+                        break;
+                    case 1:
+                        lvi.SubItems.Add("General");
+                        break;
+                    case 2:
+                        lvi.SubItems.Add("Web");
+                        break;
+                    case 3:
+                        lvi.SubItems.Add("Game");
+                        break;
+                    case 4:
+                        lvi.SubItems.Add("Email");
+                        break;
+                    case 5:
+                        lvi.SubItems.Add("Windows");
+                        break;
+                }
+
+                
                 lvi.SubItems.Add(item.Url);
                 lvi.SubItems.Add(item.Expires.ToString());
                 this.lvPasswords.Items.Add(lvi);
