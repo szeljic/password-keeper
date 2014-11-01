@@ -8,8 +8,15 @@ namespace PasswordKeeper.User
 {
     class User
     {
+        private int id;
         private string username;
         private string password;
+        
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         public string Username
         {
@@ -23,8 +30,9 @@ namespace PasswordKeeper.User
             set { password = value; }
         }
 
-        public User(string username, string password)
+        public User(int id, string username, string password)
         {
+            this.id = id;
             this.username = username;
             this.password = password;
         }

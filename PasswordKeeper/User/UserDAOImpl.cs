@@ -23,7 +23,7 @@ namespace PasswordKeeper.User
                 sBuilder.Append(data[i].ToString("x2"));
             }           
 
-            connection.AddUser(new User(username, sBuilder.ToString()));
+            connection.AddUser(new User(0, username, sBuilder.ToString()));
         }
 
         public User getUser(string username, string password)

@@ -37,7 +37,7 @@ namespace PasswordKeeper
 
             if (newUser != null)
             {
-                PasswordKeeper passwordKeeper = new PasswordKeeper();
+                PasswordKeeper passwordKeeper = new PasswordKeeper(newUser.Id);
                 passwordKeeper.Show();
                 this.Hide();
             }
