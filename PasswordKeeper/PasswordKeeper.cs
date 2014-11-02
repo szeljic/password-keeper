@@ -16,11 +16,15 @@ namespace PasswordKeeper
     public partial class PasswordKeeper : Form
     {
         private int idUser;
+        private Form1 loginForm;
+        private int logout = 0;
         private List<string> listOfPasswords = new List<string>();
+        private TreeNode[] listOfNodes = new TreeNode[6];
 
-        public PasswordKeeper(int idUser)
+        public PasswordKeeper(int idUser, Form1 loginForm)
         {
             this.idUser = idUser;
+            this.loginForm = loginForm;
             InitializeComponent();
         }
 
@@ -42,7 +46,10 @@ namespace PasswordKeeper
 
         private void PasswordKeeper_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            if (logout == 0)
+            {
+                Application.Exit();
+            }            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -72,6 +79,7 @@ namespace PasswordKeeper
             ParentNode.BackColor = Color.White;
             ParentNode.ImageIndex = 0;
             ParentNode.SelectedImageIndex = 0;
+            listOfNodes[0] = ParentNode;
             this.tvTypes.Nodes.Add(ParentNode);
 
             int i = 1;
@@ -84,6 +92,7 @@ namespace PasswordKeeper
                 ChildNode.BackColor = Color.White;
                 ChildNode.ImageIndex = i;
                 ChildNode.SelectedImageIndex = i;
+                listOfNodes[i] = ChildNode;
                 ParentNode.Nodes.Add(ChildNode);
                 i++;
             }
@@ -154,16 +163,11 @@ namespace PasswordKeeper
                 }
                 else
                 {
-                    lvi.SubItems.Add(item.Expires.ToString("HH:mm dd.MM.yyyy"));
+                    lvi.SubItems.Add(item.Expires.ToString("dd.MM.yyyy HH:mm"));
                 }
                 lvi.SubItems.Add(item.IdPass.ToString());
                 this.lvPasswords.Items.Add(lvi);
             }
-        }
-
-        private void allToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void cbShowPasswords_CheckedChanged(object sender, EventArgs e)
@@ -244,6 +248,58 @@ namespace PasswordKeeper
         private void removeSelectedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnRemove_Click(sender, e);
+        }
+
+        private void allToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.tvTypes.SelectedNode = listOfNodes[0];
+        }
+
+        private void generalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.tvTypes.SelectedNode = listOfNodes[1];
+        }
+
+        private void webToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.tvTypes.SelectedNode = listOfNodes[2];
+        }
+
+        private void gameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.tvTypes.SelectedNode = listOfNodes[3];
+        }
+
+        private void emailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.tvTypes.SelectedNode = listOfNodes[4];
+        }
+
+        private void windowsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.tvTypes.SelectedNode = listOfNodes[5];
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            logout = 1;
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            logout = 1;
+            loginForm.Show();
+            RegistryForm registryForm = new RegistryForm();
+            this.Close();
+            registryForm.ShowDialog();
         }
     }
 }

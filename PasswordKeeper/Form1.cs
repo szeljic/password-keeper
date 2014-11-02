@@ -35,9 +35,14 @@ namespace PasswordKeeper
             UserDAO user = new UserDAOImpl();
             User.User newUser = user.getUser(this.tbUsername.Text, this.tbPassword.Text);
 
+            this.tbUsername.Text = "";
+            this.tbPassword.Text = "";
+            this.tbUsername.Focus();
+
             if (newUser != null)
             {
-                PasswordKeeper passwordKeeper = new PasswordKeeper(newUser.Id);
+                PasswordKeeper passwordKeeper = new PasswordKeeper(newUser.Id, this);
+                lblInfo.Text = "";
                 passwordKeeper.Show();
                 this.Hide();
             }

@@ -121,7 +121,7 @@
   <data name="btnLogin.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAHySURBVDhPpZLdS5NRHMcPSFA3XvSmoIzmNJkvmy7T+YJJ
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAHySURBVDhPpZLdS5NRHMcPSFA3XvSmoIzmNJkvmy7T+YJJ
         jV3IKhnC0mJzOldMfZy69qCkrFGh6I1IgRfiiEjwRtSBEtPpBJmT6UAKQpC866r+hK+/44R65rMI/MKH
         A+f8vh8ennPYhbMr6vC/nFWk4Qf7EyaEXxuOMjKYkUPbekJD5BPZxJW0gpi3HBueO/i5JCIy0xdOJzBN
         XAWbZucl414n1t1afB+9h1/hMby3a8K0LRVMsU+nZTlB1FOGkKDBN78exwE7nlde50N/BH7Wy4vvEm+S
@@ -136,7 +136,7 @@
   <data name="btnRegistry.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAJUSURBVDhPY0AH9aFabP0RSte7g+T+dgTI/usOUrgCEoNK
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAJUSURBVDhPY0AH9aFabP0RSte7g+T+dgTI/usOUrgCEoNK
         Ewb9YUo7J8Uo/J+RpPh/QqT8/yZP6f99YUr7odL4warQUOY6F5m/p2ak/1lT4fP/+vKq/7vbY/81uMr+
         BclBleEGq0vM9SpsJf+92N3z/+n2jv+PNrf8v7e+/n+1g8y/FYVWjlBluAHIllVFlp9urqr8+2Bj4/87
         a2v/X15c+HdNifXnRcV63FBl+MHKIoueE1OTft5eXQ30Qtn/Q31Rv1YVWvZBpQmDNUWWGhuqnL5cmJ/7
@@ -152,7 +152,7 @@
   <data name="btnClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAJeSURBVDhPrZFdSFNhGMdfCIQughIvRjv7UHcdRVDdVVdp
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAJeSURBVDhPrZFdSFNhGMdfCIQughIvRjv7UHcdRVDdVVdp
         SqIlQ9OQhSFqjDNNSgKDBqMVkgTWhQRRRB0rCQZzO5IVRDKMRU1xfozMPje3tp15tjPnns7z7u1jYHf9
         4c/7vM/z/z0c3kP+uz7y3NZ5m9Ea5A2j87wxhMZ6zmaw4YzFNleQL98X7DEFv9w8CUmXA6jWFUiMDQD2
         5myVi7O88SCLF2u2W18TPL8rlxy7BBlxCNZuWyifz6QgNXIKMs+GAWeYCViNxxhWUIDnSme6K6Lxh32g
