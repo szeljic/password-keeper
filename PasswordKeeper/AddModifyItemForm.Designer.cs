@@ -1,6 +1,6 @@
 ﻿namespace PasswordKeeper
 {
-    partial class AddItemForm
+    partial class AddModifyItemForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddItemForm));
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddModifyItemForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,6 +56,7 @@
             this.lblPasswordMissing = new System.Windows.Forms.Label();
             this.lblPasswordRepeatMissing = new System.Windows.Forms.Label();
             this.cbShowPassword = new System.Windows.Forms.CheckBox();
+            this.iLModify = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -163,7 +165,7 @@
             this.tbTitle.Location = new System.Drawing.Point(82, 55);
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.Size = new System.Drawing.Size(268, 20);
-            this.tbTitle.TabIndex = 10;
+            this.tbTitle.TabIndex = 0;
             // 
             // tbUsername
             // 
@@ -172,7 +174,7 @@
             this.tbUsername.Location = new System.Drawing.Point(82, 81);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(268, 20);
-            this.tbUsername.TabIndex = 11;
+            this.tbUsername.TabIndex = 1;
             // 
             // tbPassword
             // 
@@ -182,7 +184,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(268, 20);
-            this.tbPassword.TabIndex = 12;
+            this.tbPassword.TabIndex = 2;
             // 
             // tbRepeatPassword
             // 
@@ -192,7 +194,7 @@
             this.tbRepeatPassword.Name = "tbRepeatPassword";
             this.tbRepeatPassword.PasswordChar = '*';
             this.tbRepeatPassword.Size = new System.Drawing.Size(268, 20);
-            this.tbRepeatPassword.TabIndex = 13;
+            this.tbRepeatPassword.TabIndex = 3;
             // 
             // tbDescription
             // 
@@ -203,7 +205,7 @@
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(268, 95);
-            this.tbDescription.TabIndex = 14;
+            this.tbDescription.TabIndex = 6;
             // 
             // cbType
             // 
@@ -214,7 +216,7 @@
             this.cbType.Location = new System.Drawing.Point(82, 159);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(268, 21);
-            this.cbType.TabIndex = 15;
+            this.cbType.TabIndex = 4;
             // 
             // label9
             // 
@@ -232,7 +234,7 @@
             this.tbURL.Location = new System.Drawing.Point(82, 186);
             this.tbURL.Name = "tbURL";
             this.tbURL.Size = new System.Drawing.Size(268, 20);
-            this.tbURL.TabIndex = 17;
+            this.tbURL.TabIndex = 5;
             // 
             // label8
             // 
@@ -251,10 +253,11 @@
             this.dtpExpires.Location = new System.Drawing.Point(105, 313);
             this.dtpExpires.Name = "dtpExpires";
             this.dtpExpires.Size = new System.Drawing.Size(245, 20);
-            this.dtpExpires.TabIndex = 19;
+            this.dtpExpires.TabIndex = 7;
             // 
             // cbExpires
             // 
+            this.cbExpires.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbExpires.AutoSize = true;
             this.cbExpires.Location = new System.Drawing.Point(84, 316);
             this.cbExpires.Name = "cbExpires";
@@ -265,6 +268,7 @@
             // 
             // lblTitleMissing
             // 
+            this.lblTitleMissing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTitleMissing.AutoSize = true;
             this.lblTitleMissing.Location = new System.Drawing.Point(356, 58);
             this.lblTitleMissing.Name = "lblTitleMissing";
@@ -274,6 +278,7 @@
             // 
             // lblUsernameMissing
             // 
+            this.lblUsernameMissing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsernameMissing.AutoSize = true;
             this.lblUsernameMissing.Location = new System.Drawing.Point(356, 84);
             this.lblUsernameMissing.Name = "lblUsernameMissing";
@@ -283,6 +288,7 @@
             // 
             // lblPasswordMissing
             // 
+            this.lblPasswordMissing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPasswordMissing.AutoSize = true;
             this.lblPasswordMissing.Location = new System.Drawing.Point(356, 110);
             this.lblPasswordMissing.Name = "lblPasswordMissing";
@@ -292,6 +298,7 @@
             // 
             // lblPasswordRepeatMissing
             // 
+            this.lblPasswordRepeatMissing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPasswordRepeatMissing.AutoSize = true;
             this.lblPasswordRepeatMissing.Location = new System.Drawing.Point(356, 136);
             this.lblPasswordRepeatMissing.Name = "lblPasswordRepeatMissing";
@@ -301,6 +308,7 @@
             // 
             // cbShowPassword
             // 
+            this.cbShowPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbShowPassword.AutoSize = true;
             this.cbShowPassword.Location = new System.Drawing.Point(84, 339);
             this.cbShowPassword.Name = "cbShowPassword";
@@ -310,7 +318,13 @@
             this.cbShowPassword.UseVisualStyleBackColor = true;
             this.cbShowPassword.CheckedChanged += new System.EventHandler(this.cbShowPassword_CheckedChanged);
             // 
-            // AddItemForm
+            // iLModify
+            // 
+            this.iLModify.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("iLModify.ImageStream")));
+            this.iLModify.TransparentColor = System.Drawing.Color.Transparent;
+            this.iLModify.Images.SetKeyName(0, "edit (3).ico");
+            // 
+            // AddModifyItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -341,7 +355,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "AddItemForm";
+            this.MinimumSize = new System.Drawing.Size(400, 435);
+            this.Name = "AddModifyItemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddItemForm";
             this.Load += new System.EventHandler(this.AddItemForm_Load);
@@ -378,5 +393,6 @@
         private System.Windows.Forms.Label lblPasswordMissing;
         private System.Windows.Forms.Label lblPasswordRepeatMissing;
         private System.Windows.Forms.CheckBox cbShowPassword;
+        private System.Windows.Forms.ImageList iLModify;
     }
 }

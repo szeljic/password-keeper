@@ -10,5 +10,8 @@ namespace PasswordKeeper.Passwords
     {
         void AddItem(Item item);
         List<Item> SelectItemsForType(int userId, int unitTypeId);
+        Item SelectItem(int itemId);
+        void UpdateItem(Item item);
+        void RemoveItem(int itemId);
     }
 }

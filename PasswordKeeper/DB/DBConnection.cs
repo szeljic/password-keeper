@@ -142,7 +142,7 @@ namespace PasswordKeeper.DB
                 command.Parameters.AddWithValue("@description", item.Description);
                 command.Parameters.AddWithValue("@expires", item.Expires.ToString("yyyy-MM-dd HH:mm:ss"));
                 command.Parameters.AddWithValue("@UNIT_TYPE_id", item.Type);
-                command.Parameters.AddWithValue("@USER_id", item.Id);
+                command.Parameters.AddWithValue("@USER_id", item.IdUser);
                 command.ExecuteNonQuery();
             }
             this.CloseConnection();
@@ -151,7 +151,7 @@ namespace PasswordKeeper.DB
 
         public List<Item> SelectItems(int userId, int unitTypeId)
         {
-            string query = @"SELECT title, username, password, url, description, expires, UNIT_TYPE_id, USER_id FROM pass_unit WHERE USER_id=" + userId + " AND UNIT_TYPE_id=" + unitTypeId;
+            string query = "SELECT id, title, username, password, url, description, expires, UNIT_TYPE_id, USER_id FROM pass_unit WHERE USER_id=" + userId + " AND UNIT_TYPE_id=" + unitTypeId;
 
             List<Item> list = new List<Item>();
 
@@ -163,14 +163,16 @@ namespace PasswordKeeper.DB
                 {
                     while (data.Read())
                     {
-                        string title = data.GetString(0);
-                        string username = data.GetString(1);
-                        string password = data.GetString(2);
-                        int type = data.GetInt16(6);
-                        string url = data.GetString(3);
-                        string description = data.GetString(4);
-                        DateTime expires = data.GetDateTime(5);
-                        list.Add(new Item(0, title, username, password, type, url, description, expires));
+                        int id = data.GetInt32(0);
+                        string title = data.GetString(1);
+                        string username = data.GetString(2);
+                        string password = data.GetString(3);
+                        int type = data.GetInt32(7);
+                        string url = data.GetString(4);
+                        string description = data.GetString(5);
+                        DateTime expires = data.GetDateTime(6);
+                        int idUser = data.GetInt32(8);
+                        list.Add(new Item(id, idUser, title, username, password, type, url, description, expires));
                     }
                 }
                 data.Close();
@@ -182,6 +184,55 @@ namespace PasswordKeeper.DB
                 return list;
             }
 
+        }
+
+        public Item SelectItem(int itemId)
+        {
+            string query = "SELECT * FROM pass_unit WHERE id=" + itemId;
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader data = cmd.ExecuteReader();
+                if (data.HasRows)
+                {
+                    data.Read();
+                    int id = data.GetInt32(0);
+                    string title = data.GetString(1);
+                    string username = data.GetString(2);
+                    string password = data.GetString(3);
+                    int type = data.GetInt32(7);
+                    string url = data.GetString(4);
+                    string description = data.GetString(5);
+                    DateTime expires = data.GetDateTime(6);
+                    int idUser = data.GetInt32(8);
+                    return new Item(id, idUser, title, username, password, type, url, description, expires);
+                }
+            }
+            return null;
+        }
+
+        public void UpdateItem(Item item)
+        {
+            string query = "UPDATE pass_unit SET title='" + item.Title + "', username='" + item.Username + "', password='" + item.Password + "', url='" + item.Url + "', description='" + item.Description + "', expires='" + item.Expires.ToString("yyyy-MM-dd HH:mm:ss") + "', UNIT_TYPE_id='" + item.Type + "', USER_ID='" + item.IdUser + "' WHERE id='" + item.IdPass + "'";
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+        }
+
+        public void RemoveItem(int itemId)
+        {
+            string query = "DELETE FROM pass_unit WHERE id='" + itemId + "'";
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
         }
     }
 }

@@ -43,8 +43,8 @@
             this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.webToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,13 +55,15 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnAdd = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbShowPasswords = new System.Windows.Forms.CheckBox();
             this.tvTypes = new System.Windows.Forms.TreeView();
             this.ilTypes = new System.Windows.Forms.ImageList(this.components);
+            this.lblBezze = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +77,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(584, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(589, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -93,7 +95,7 @@
             // 
             this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // logoutToolStripMenuItem
@@ -136,6 +138,7 @@
             this.changeSelectedToolStripMenuItem.Name = "changeSelectedToolStripMenuItem";
             this.changeSelectedToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.changeSelectedToolStripMenuItem.Text = "Change selected";
+            this.changeSelectedToolStripMenuItem.Click += new System.EventHandler(this.changeSelectedToolStripMenuItem_Click);
             // 
             // removeSelectedToolStripMenuItem
             // 
@@ -143,6 +146,7 @@
             this.removeSelectedToolStripMenuItem.Name = "removeSelectedToolStripMenuItem";
             this.removeSelectedToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.removeSelectedToolStripMenuItem.Text = "Remove selected";
+            this.removeSelectedToolStripMenuItem.Click += new System.EventHandler(this.removeSelectedToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -163,6 +167,7 @@
             this.allToolStripMenuItem.Name = "allToolStripMenuItem";
             this.allToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.allToolStripMenuItem.Text = "All";
+            this.allToolStripMenuItem.Click += new System.EventHandler(this.allToolStripMenuItem_Click);
             // 
             // generalToolStripMenuItem
             // 
@@ -178,19 +183,19 @@
             this.webToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.webToolStripMenuItem.Text = "Web";
             // 
-            // emailToolStripMenuItem
-            // 
-            this.emailToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("emailToolStripMenuItem.Image")));
-            this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
-            this.emailToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.emailToolStripMenuItem.Text = "Email";
-            // 
             // gameToolStripMenuItem
             // 
             this.gameToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("gameToolStripMenuItem.Image")));
             this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
             this.gameToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.gameToolStripMenuItem.Text = "Game";
+            // 
+            // emailToolStripMenuItem
+            // 
+            this.emailToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("emailToolStripMenuItem.Image")));
+            this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
+            this.emailToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.emailToolStripMenuItem.Text = "Email";
             // 
             // windowsToolStripMenuItem
             // 
@@ -225,15 +230,17 @@
             this.columnHeader3,
             this.columnHeader6,
             this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader5,
+            this.columnHeader7});
             this.lvPasswords.FullRowSelect = true;
             this.lvPasswords.GridLines = true;
             this.lvPasswords.Location = new System.Drawing.Point(139, 123);
             this.lvPasswords.Name = "lvPasswords";
-            this.lvPasswords.Size = new System.Drawing.Size(433, 342);
+            this.lvPasswords.Size = new System.Drawing.Size(438, 342);
             this.lvPasswords.TabIndex = 8;
             this.lvPasswords.UseCompatibleStateImageBehavior = false;
             this.lvPasswords.View = System.Windows.Forms.View.Details;
+            this.lvPasswords.SelectedIndexChanged += new System.EventHandler(this.lvPasswords_SelectedIndexChanged);
             this.lvPasswords.Resize += new System.EventHandler(this.listView1_Resize);
             // 
             // columnHeader1
@@ -266,14 +273,19 @@
             // 
             this.columnHeader5.Text = "Expires";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader5.Width = 138;
+            this.columnHeader5.Width = 135;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "id";
+            this.columnHeader7.Width = 0;
             // 
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(335, 471);
+            this.btnAdd.Location = new System.Drawing.Point(340, 472);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 9;
@@ -281,38 +293,40 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button8
+            // btnModify
             // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(416, 471);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 10;
-            this.button8.Text = "Modify";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModify.Image = ((System.Drawing.Image)(resources.GetObject("btnModify.Image")));
+            this.btnModify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModify.Location = new System.Drawing.Point(421, 472);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(75, 23);
+            this.btnModify.TabIndex = 10;
+            this.btnModify.Text = "Modify";
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
-            // button9
+            // btnRemove
             // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(497, 471);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 11;
-            this.button9.Text = "   Remove";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.Image")));
+            this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemove.Location = new System.Drawing.Point(502, 472);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.TabIndex = 11;
+            this.btnRemove.Text = "   Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(9, 27);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 27);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(563, 90);
+            this.pictureBox1.Size = new System.Drawing.Size(566, 90);
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
@@ -326,9 +340,12 @@
             this.cbShowPasswords.TabIndex = 13;
             this.cbShowPasswords.Text = "Show passwords";
             this.cbShowPasswords.UseVisualStyleBackColor = true;
+            this.cbShowPasswords.CheckedChanged += new System.EventHandler(this.cbShowPasswords_CheckedChanged);
             // 
             // tvTypes
             // 
+            this.tvTypes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tvTypes.ImageIndex = 0;
             this.tvTypes.ImageList = this.ilTypes;
             this.tvTypes.Location = new System.Drawing.Point(12, 123);
@@ -336,7 +353,7 @@
             this.tvTypes.SelectedImageIndex = 0;
             this.tvTypes.Size = new System.Drawing.Size(121, 342);
             this.tvTypes.TabIndex = 14;
-            this.tvTypes.Click += new System.EventHandler(this.tvTypes_Click);
+            this.tvTypes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvTypes_AfterSelect);
             // 
             // ilTypes
             // 
@@ -349,21 +366,30 @@
             this.ilTypes.Images.SetKeyName(4, "1414351050_59253.ico");
             this.ilTypes.Images.SetKeyName(5, "Apps-preferences-system-login-icon.png");
             // 
+            // lblBezze
+            // 
+            this.lblBezze.AutoSize = true;
+            this.lblBezze.Location = new System.Drawing.Point(12, 483);
+            this.lblBezze.Name = "lblBezze";
+            this.lblBezze.Size = new System.Drawing.Size(0, 13);
+            this.lblBezze.TabIndex = 15;
+            // 
             // PasswordKeeper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 505);
+            this.ClientSize = new System.Drawing.Size(589, 505);
+            this.Controls.Add(this.lblBezze);
             this.Controls.Add(this.tvTypes);
             this.Controls.Add(this.cbShowPasswords);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lvPasswords);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(600, 500);
+            this.MinimumSize = new System.Drawing.Size(605, 543);
             this.Name = "PasswordKeeper";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PasswordKeeper";
@@ -404,12 +430,14 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnModify;
+        private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox cbShowPasswords;
         private System.Windows.Forms.TreeView tvTypes;
         private System.Windows.Forms.ImageList ilTypes;
+        private System.Windows.Forms.Label lblBezze;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }

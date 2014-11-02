@@ -20,5 +20,23 @@ namespace PasswordKeeper.Passwords
             DBConnection connection = new DBConnection();
             return connection.SelectItems(userId, unitTypeId);
         }
+
+        public Item SelectItem(int itemId)
+        {
+            DBConnection connection = new DBConnection();
+            return connection.SelectItem(itemId);
+        }
+
+        public void UpdateItem(Item item)
+        {
+            DBConnection connection = new DBConnection();
+            connection.UpdateItem(item);
+        }
+
+        public void RemoveItem(int itemId)
+        {
+            DBConnection connection = new DBConnection();
+            connection.RemoveItem(itemId);
+        }
     }
 }

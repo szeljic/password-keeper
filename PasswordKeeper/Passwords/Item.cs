@@ -9,7 +9,13 @@ namespace PasswordKeeper.Passwords
     class Item
     {
         private string title, username, password, url, description;
-        private int id, type;
+        private int idUser, idPass, type;
+
+        public int IdPass
+        {
+            get { return idPass; }
+            set { idPass = value; }
+        }
         private DateTime expires;
 
         public DateTime Expires
@@ -24,10 +30,10 @@ namespace PasswordKeeper.Passwords
             set { type = value; }
         }
 
-        public int Id
+        public int IdUser
         {
-            get { return id; }
-            set { id = value; }
+            get { return idUser; }
+            set { idUser = value; }
         }
 
         public string Description
@@ -60,9 +66,10 @@ namespace PasswordKeeper.Passwords
             set { title = value; }
         }
 
-        public Item(int id, string title, string username, string password, int type, string url, string description, DateTime expires)
+        public Item(int idPass, int idUser, string title, string username, string password, int type, string url, string description, DateTime expires)
         {
-            this.id = id;
+            this.idPass = idPass;
+            this.idUser = idUser;
             this.title = title;
             this.username = username;
             this.password = password;

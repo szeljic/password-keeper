@@ -48,7 +48,7 @@
             this.btnLogin.Location = new System.Drawing.Point(74, 98);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(150, 23);
-            this.btnLogin.TabIndex = 0;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -91,7 +91,7 @@
             this.tbUsername.Location = new System.Drawing.Point(74, 46);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(150, 20);
-            this.tbUsername.TabIndex = 5;
+            this.tbUsername.TabIndex = 0;
             this.tbUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUsername_KeyPress);
             // 
             // tbPassword
@@ -100,7 +100,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(150, 20);
-            this.tbPassword.TabIndex = 6;
+            this.tbPassword.TabIndex = 1;
             this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPassword_KeyPress);
             // 
             // label3
