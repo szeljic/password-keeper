@@ -20,6 +20,7 @@ namespace PasswordKeeper
         private int logout = 0;
         private List<string> listOfPasswords = new List<string>();
         private TreeNode[] listOfNodes = new TreeNode[6];
+        private string selectedNode = "";
 
         public PasswordKeeper(int idUser, Form1 loginForm)
         {
@@ -56,6 +57,7 @@ namespace PasswordKeeper
         {
             AddModifyItemForm addItemForm = new AddModifyItemForm(idUser, 0);
             addItemForm.ShowDialog();
+            this.ReloadListView();
         }
 
         private void addEnteryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -104,70 +106,8 @@ namespace PasswordKeeper
 
         private void tvTypes_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            this.btnModify.Enabled = false;
-            this.btnRemove.Enabled = false;
-            this.changeSelectedToolStripMenuItem.Enabled = false;
-            this.removeSelectedToolStripMenuItem.Enabled = false;
-            this.lvPasswords.Items.Clear();
-            List<Item> list = new List<Item>();
-            this.cbShowPasswords.Checked = false;
-
-            if (this.tvTypes.SelectedNode.Text == "All")
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    ItemDAO itemDAO = new ItemDAOImpl();
-                    list.AddRange(itemDAO.SelectItemsForType(idUser, i + 1));
-                }
-            }
-            else
-            {
-                ItemDAO itemDAO = new ItemDAOImpl();
-                list.AddRange(itemDAO.SelectItemsForType(idUser, this.tvTypes.SelectedNode.Index + 1));
-            }
-
-            listOfPasswords.Clear();
-            ListViewItem lvi;
-            foreach (Item item in list)
-            {
-                lvi = new ListViewItem(item.Title);
-                lvi.SubItems.Add(item.Username);
-                lvi.SubItems.Add("");
-                listOfPasswords.Add(item.Password);
-
-                switch (item.Type)
-                {
-                    case 0:
-                        lvi.SubItems.Add("All");
-                        break;
-                    case 1:
-                        lvi.SubItems.Add("General");
-                        break;
-                    case 2:
-                        lvi.SubItems.Add("Web");
-                        break;
-                    case 3:
-                        lvi.SubItems.Add("Game");
-                        break;
-                    case 4:
-                        lvi.SubItems.Add("Email");
-                        break;
-                    case 5:
-                        lvi.SubItems.Add("Windows");
-                        break;
-                }
-                lvi.SubItems.Add(item.Url);
-                if(item.Expires.ToString() == DateTime.MaxValue.ToString())
-                {
-                    lvi.SubItems.Add("");
-                }
-                else
-                {
-                    lvi.SubItems.Add(item.Expires.ToString("dd.MM.yyyy HH:mm"));
-                }
-                lvi.SubItems.Add(item.IdPass.ToString());
-                this.lvPasswords.Items.Add(lvi);
-            }
+            this.selectedNode = this.tvTypes.SelectedNode.Text;
+            this.ReloadListView();
         }
 
         private void cbShowPasswords_CheckedChanged(object sender, EventArgs e)
@@ -205,6 +145,7 @@ namespace PasswordKeeper
 
             AddModifyItemForm addModifyForm = new AddModifyItemForm(idUser, idPass);
             addModifyForm.ShowDialog();
+            this.ReloadListView();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -220,6 +161,7 @@ namespace PasswordKeeper
             itemDAO.RemoveItem(idPass);
             
             this.btnRemove.Enabled = false;
+            this.ReloadListView();
         }
 
         private void lvPasswords_SelectedIndexChanged(object sender, EventArgs e)
@@ -300,6 +242,79 @@ namespace PasswordKeeper
             RegistryForm registryForm = new RegistryForm();
             this.Close();
             registryForm.ShowDialog();
+        }
+
+        private void ReloadListView()
+        {
+            if (this.selectedNode == "")
+            {
+                return;
+            }
+
+            this.btnModify.Enabled = false;
+            this.btnRemove.Enabled = false;
+            this.changeSelectedToolStripMenuItem.Enabled = false;
+            this.removeSelectedToolStripMenuItem.Enabled = false;
+            this.lvPasswords.Items.Clear();
+            List<Item> list = new List<Item>();
+            this.cbShowPasswords.Checked = false;
+
+            if (this.selectedNode == "All")
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    ItemDAO itemDAO = new ItemDAOImpl();
+                    list.AddRange(itemDAO.SelectItemsForType(idUser, i + 1));
+                }
+            }
+            else
+            {
+                ItemDAO itemDAO = new ItemDAOImpl();
+                list.AddRange(itemDAO.SelectItemsForType(idUser, this.tvTypes.SelectedNode.Index + 1));
+            }
+
+            listOfPasswords.Clear();
+            ListViewItem lvi;
+            foreach (Item item in list)
+            {
+                lvi = new ListViewItem(item.Title);
+                lvi.SubItems.Add(item.Username);
+                lvi.SubItems.Add("");
+                listOfPasswords.Add(item.Password);
+
+                switch (item.Type)
+                {
+                    case 0:
+                        lvi.SubItems.Add("All");
+                        break;
+                    case 1:
+                        lvi.SubItems.Add("General");
+                        break;
+                    case 2:
+                        lvi.SubItems.Add("Web");
+                        break;
+                    case 3:
+                        lvi.SubItems.Add("Game");
+                        break;
+                    case 4:
+                        lvi.SubItems.Add("Email");
+                        break;
+                    case 5:
+                        lvi.SubItems.Add("Windows");
+                        break;
+                }
+                lvi.SubItems.Add(item.Url);
+                if(item.Expires.ToString() == DateTime.MaxValue.ToString())
+                {
+                    lvi.SubItems.Add("");
+                }
+                else
+                {
+                    lvi.SubItems.Add(item.Expires.ToString("dd.MM.yyyy HH:mm"));
+                }
+                lvi.SubItems.Add(item.IdPass.ToString());
+                this.lvPasswords.Items.Add(lvi);
+            }
         }
     }
 }

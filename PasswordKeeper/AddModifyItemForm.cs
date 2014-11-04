@@ -48,6 +48,7 @@ namespace PasswordKeeper
 
             if (idPass != 0)
             {
+                this.pictureBox1.Image = this.ilBanners.Images[1];
                 this.Text = "Modify Entery";
                 this.btnAdd.Text = " Modify";
                 this.btnAdd.Image = this.iLModify.Images[0];
