@@ -30,7 +30,7 @@ namespace PasswordKeeper.DB
             server = "localhost";
             database = "password_keeper";
             uid = "root";
-            password = "stralezelja";
+            password = "123456";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionString);
